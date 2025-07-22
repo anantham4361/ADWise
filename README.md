@@ -171,15 +171,3 @@ npm run dev
 cd backend
 npm run dev
 ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes with clear messages
-4. Push to your branch
-5. Create a Pull Request with a description of your changes
-
-## License
-
-MIT License (or specify your license here)
