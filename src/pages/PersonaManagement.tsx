@@ -207,7 +207,7 @@ const PersonaManagement: React.FC = () => {
                   Created: {persona.created_at ? new Date(persona.created_at).toLocaleDateString() : 'Unknown'}
                 </span>
                 {/* go to analysis page*/}
-                <Link  to={`/analysis`} className="text-indigo-600 hover:text-indigo-700 text-sm font-medium">
+                <Link  to={`/app/analysis`} className="text-indigo-600 hover:text-indigo-700 text-sm font-medium">
                   Use in Analysis
                 </Link>
                 

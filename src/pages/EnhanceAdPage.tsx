@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Upload, Wand2, ArrowRight, Check } from 'lucide-react';
+import React, { useState  } from 'react';
+import { Sparkles,  Wand2,  } from 'lucide-react';
 import { useThemeStore } from '../stores/themeStore';
-import { analysisApi, enhanceApi } from '../services/api';
+import {  enhanceApi } from '../services/api';
 import { useAnalysisReports } from '../hooks/useAnalysisReports';
 interface EnhanceResult {
   enhancedContent: string;
@@ -179,7 +179,7 @@ const EnhanceAdPage: React.FC = () => {
                     {criterion.replace(/_/g, ' ')}
                   </p>
                   <p className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                    {score}/60
+                    {score}
                   </p>
                 </div>
               ))}

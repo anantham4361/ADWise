@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAuthStore } from './stores/authStore';
+import LandingPage from './pages/LandingPage';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import LoginPage from './components/auth/LoginPage';
@@ -65,21 +66,24 @@ function App() {
     <Router>
       <div className={isDark ? 'dark' : ''}>
         <Routes>
+          {/* Landing page */}
+          <Route path="/" element={<LandingPage />} />
+          
           {/* Public routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           
           {/* Protected routes */}
-          <Route path="/" element={
+          <Route path="/app" element={
             <ProtectedRoute>
               <Layout />
             </ProtectedRoute>
           }>
             <Route index element={<Dashboard />} />
-            <Route path="analysis" element={<AdAnalysisPage />} />
-            <Route path="personas" element={<PersonaManagement />} />
-            <Route path="history" element={<AnalysisHistory />} />
-            <Route path="enhance" element={<EnhanceAdPage />} />
+            <Route path="/app/analysis" element={<AdAnalysisPage />} />
+            <Route path="/app/personas" element={<PersonaManagement />} />
+            <Route path="/app/history" element={<AnalysisHistory />} />
+            <Route path="/app/enhance" element={<EnhanceAdPage />} />
           </Route>
         </Routes>
       </div>

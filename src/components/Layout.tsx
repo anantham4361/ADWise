@@ -54,7 +54,7 @@ const Layout: React.FC = () => {
           <div className="flex items-center">
             <img src="/logo.png" alt="Logo" className="w-8 h-8 mr-3" />
             <h1 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              Persona-Based Ad Testing
+              ADWISE
             </h1>
             {profile && (
               <span className={`ml-4 px-3 py-1 rounded-full text-xs font-medium ${

@@ -193,6 +193,9 @@ const SignupPage: React.FC = () => {
                 Sign in
               </Link>
             </p>
+            <Link to="/" className="font-small text-blue-500 hover:text-blue-900">
+                            Go back
+                          </Link>
           </div>
         </form>
       </div>

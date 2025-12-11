@@ -19,7 +19,7 @@ const LoginPage: React.FC = () => {
 
     try {
       await signIn(email, password);
-      navigate('/');
+      navigate('/app');
     } catch (err: any) {
       setError(err.message || 'Failed to sign in');
     }
@@ -110,6 +110,9 @@ const LoginPage: React.FC = () => {
                 Sign up
               </Link>
             </p>
+            <Link to="/" className="font-small text-blue-500 hover:text-blue-900">
+                Go back
+              </Link>
           </div>
         </form>
       </div>

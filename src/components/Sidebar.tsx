@@ -12,7 +12,8 @@ import {
   TestTube,
   User,
   Crown,
-  LogOut
+  LogOut,
+  LayoutDashboard
 } from 'lucide-react';
 import { useThemeStore } from '../stores/themeStore';
 
@@ -22,10 +23,11 @@ const Sidebar = () => {
   const { profile, signOut } = useAuthStore();
 
   const navigation = [
-    { name: 'Ad Analysis', href: '/', icon: BarChart3 },
-    { name: 'Persona Management', href: '/personas', icon: Users },
-    { name: 'Analysis History', href: '/history', icon: History },
-    { name: 'Enhance Ad', href: '/enhance', icon: Sparkles },
+    { name: 'Dashboard', href: '/app/', icon: LayoutDashboard },
+    { name: 'Ad Analysis', href: '/app/analysis', icon: BarChart3 },
+    { name: 'Persona Management', href: '/app/personas', icon: Users },
+    { name: 'Analysis History', href: '/app/history', icon: History },
+    { name: 'Enhance Ad', href: '/app/enhance', icon: Sparkles },
   ];
 
   const isActive = (path: string) => {
@@ -45,12 +47,11 @@ const Sidebar = () => {
     <div className="fixed top-0 left-0 w-64 h-screen bg-gray-900 text-white flex flex-col z-50">
       {/* Logo */}
       <div className="p-4 border-b border-gray-800">
+        <Link key="adwise" to="/">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-md flex items-center justify-center">
-            <TestTube className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-lg font-semibold">ADWise</span>
+          <span className="text-lg font-semibold">ADWISE</span>
         </div>
+        </Link>
       </div>
 
       {/* Navigation */}
