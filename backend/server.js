@@ -265,7 +265,7 @@ app.post('/evaluate-video-ads',
 app.post('/evaluate-text-ads',
   authenticateUser,
   requirePermission('analyze'),
-  upload.none(), // This processes multipart form data without files
+  upload.none(), 
   validateTextAds,
   async (req, res) => {
     try {

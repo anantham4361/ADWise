@@ -145,15 +145,3 @@ This application provides tools for analyzing and enhancing advertisements while
    cd backend
    npm run dev
    ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-[Add License Information]
