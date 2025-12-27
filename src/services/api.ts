@@ -39,6 +39,11 @@ export const personaApi = {
     return response.data;
   },
 
+  getById: async (id: string): Promise<Persona> => {
+    const response = await api.get(`/api/personas/${id}`);
+    return response.data;
+  },
+
   create: async (prompt: string): Promise<Persona> => {
     const response = await api.post('/api/personas', { prompt });
     return response.data;

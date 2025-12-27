@@ -6,11 +6,15 @@ import { useAuthStore } from '../stores/authStore';
 import { useAnalysisReports } from '../hooks/useAnalysisReports';
 import { exportToPDF } from '../utils/exportUtils';
 import RoleGuard from '../components/RoleGuard';
+import PersonaDisplay from '../components/PersonaDisplay';
+import { usePersonas } from '../hooks/usePersonas';
+import { personaApi } from '../services/api';
 
 const AnalysisHistory: React.FC = () => {
   const { isDark } = useThemeStore();
   const { hasPermission } = useAuthStore();
   const { reports, isLoading, deleteReport, isDeleting } = useAnalysisReports();
+  const { personas } = usePersonas();
 
   const handleDeleteReport = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this analysis report?')) {
@@ -25,15 +29,42 @@ const AnalysisHistory: React.FC = () => {
 
   const [selectedReport, setSelectedReport] = useState<any>(null);
   const [showDetails, setShowDetails] = useState(false);
+const [personaDetails, setPersonaDetails] = useState<any>(null);
+  const [personaLoading, setPersonaLoading] = useState(false);
 
-  const handleViewDetails = (report: any) => {
+const fetchPersonaById = async (id: string) => {
+    if (!id) return null;
+    try {
+      setPersonaLoading(true);
+      const persona = await personaApi.getById(id);
+      console.log('Fetched persona from API:', persona);
+      return persona || null;
+    } catch (err) {
+      console.error('Error fetching persona from API:', err);
+      return null;
+    } finally {
+      setPersonaLoading(false);
+    }
+  };
+
+  const handleViewDetails = async (report: any) => {
     setSelectedReport(report);
     setShowDetails(true);
+
+    const id = report.persona_id;
+    if (!id) {
+      setPersonaDetails(null);
+      return;
+    }
+
+    const persona = await fetchPersonaById(id);
+    setPersonaDetails(persona);
   };
 
   const handleCloseDetails = () => {
     setSelectedReport(null);
     setShowDetails(false);
+    setPersonaDetails(null);
   };
 
   const handleExportPDF = (report: any) => {
@@ -217,25 +248,6 @@ const AnalysisHistory: React.FC = () => {
             </div>
           </div>
         </div>
-
-        <div className={`${isDark ? 'bg-gray-800' : 'bg-white'} rounded-xl shadow-lg p-6`}>
-          <div className="flex items-center">
-            <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded-lg">
-              <Download className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-            </div>
-            <div className="ml-4">
-              <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                Avg Score Diff
-              </p>
-              <p className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                {reports.length > 0 
-                  ? (reports.reduce((sum, r) => sum + Math.abs((r.ad_a_scores?.total || 0) - (r.ad_b_scores?.total || 0)), 0) / reports.length).toFixed(1)
-                  : '0'
-                }
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Details Modal */}
@@ -251,9 +263,12 @@ const AnalysisHistory: React.FC = () => {
                 onClick={handleCloseDetails}
                 className={`p-2 rounded-lg ${isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
               >
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 fixed bg-white rounded-full" />
               </button>
             </div>
+
+             
+            
 
             {/* Modal Content */}
             <ResultsDisplay result={{
@@ -265,6 +280,15 @@ const AnalysisHistory: React.FC = () => {
               explanation: selectedReport.explanation,
               criteria_names: selectedReport.criteria_names,
             }} />
+            <hr className='my-3'/>
+          {personaLoading ? (
+            <div className="py-4 text-center">
+              <Loader2 className="w-6 h-6 animate-spin text-indigo-600 mx-auto" />
+              <p className={`mt-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Loading persona...</p>
+            </div>
+          ) : (
+            personaDetails && <PersonaDisplay persona={personaDetails}/>
+          )}
           </div>
         </div>
       )}

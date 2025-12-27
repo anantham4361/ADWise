@@ -86,7 +86,6 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ result }) => {
         </div>
       </div>
 
-
       {/* Winner Announcement */}
       <div className={`rounded-xl shadow-lg p-6 border-2 ${winnerIsA ? 'bg-blue-50 border-blue-200' : 'bg-purple-50 border-purple-200'}`}>
         <div className="flex items-center mb-4">

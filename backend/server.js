@@ -93,6 +93,22 @@ app.get('/api/personas', authenticateUser, requirePermission('read'), async (req
   }
 });
 
+// api to fetch a specific persona
+app.get('/api/personas/:id', authenticateUser, requirePermission('read'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const persona = await personaService.getById(id);
+    if (!persona) {
+      return res.status(404).json({ detail: 'Persona not found' });
+    }
+    res.json(persona);
+    console.log(`Fetched persona with ID: ${id}`);
+  } catch (error) {
+    console.error('Error fetching persona:', error);
+    res.status(500).json({ detail: `Failed to fetch persona: ${error.message}` });
+  }
+});
+
 app.post('/api/personas', authenticateUser, requirePermission('create'), validatePersonaRequest, async (req, res) => {
   try {
     const { prompt } = req.body;
