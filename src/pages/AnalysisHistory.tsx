@@ -37,7 +37,6 @@ const fetchPersonaById = async (id: string) => {
     try {
       setPersonaLoading(true);
       const persona = await personaApi.getById(id);
-      console.log('Fetched persona from API:', persona);
       return persona || null;
     } catch (err) {
       console.error('Error fetching persona from API:', err);

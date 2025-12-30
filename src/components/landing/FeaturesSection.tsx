@@ -20,7 +20,7 @@ const FeaturesSection: React.FC = () => {
     {
       icon: Brain,
       title: 'AI-Powered Analysis',
-      description: 'Advanced machine learning algorithms analyze your ads with human-like understanding and precision.',
+      description: 'LLM powered analyze your ads with human-like understanding and precision.',
       color: 'from-purple-500 to-indigo-600'
     },
     {
@@ -30,22 +30,22 @@ const FeaturesSection: React.FC = () => {
       color: 'from-green-500 to-teal-600'
     },
     {
-      icon: Image,
-      title: 'Image Ad Testing',
-      description: 'Comprehensive visual analysis of static advertisements with detailed scoring across multiple criteria.',
-      color: 'from-blue-500 to-cyan-600'
-    },
-    {
-      icon: Video,
-      title: 'Video Ad Analysis',
-      description: 'Evaluate video advertisements for motion, pacing, visual storytelling, and audience engagement.',
-      color: 'from-red-500 to-pink-600'
-    },
-    {
       icon: FileText,
       title: 'Text Ad Evaluation',
       description: 'Analyze copywriting effectiveness, messaging clarity, and emotional impact of text-based ads.',
       color: 'from-yellow-500 to-orange-600'
+    },
+    {
+      icon: Image,
+      title: 'Image Ad Testing (Coming Soon)',
+      description: 'Comprehensive visual analysis of static advertisements with detailed scoring across multiple criteria.',
+      color: 'from-gray-500 to-gray-600'
+    },
+    {
+      icon: Video,
+      title: 'Video Ad Analysis (Coming Soon)',
+      description: 'Evaluate video advertisements for motion, pacing, visual storytelling, and audience engagement.',
+      color: 'from-gray-500 to-gray-600'
     },
     {
       icon: BarChart3,
@@ -68,14 +68,14 @@ const FeaturesSection: React.FC = () => {
     {
       icon: Download,
       title: 'Export & Share',
-      description: 'Export detailed reports in PDF or CSV format for presentations and team collaboration.',
+      description: 'Export detailed reports in PDF format for presentations and team collaboration.',
       color: 'from-pink-500 to-rose-600'
     },
     {
       icon: Shield,
       title: 'Enterprise Security',
       description: 'Role-based access control.',
-      color: 'from-gray-500 to-slate-600'
+      color: 'from-green-500 to-green-600'
     }
   ];
 
@@ -120,7 +120,7 @@ const FeaturesSection: React.FC = () => {
                 }`}
               >
                 <div className="mb-6">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-14 h-14 rounded-full bg-gradient-to-r ${feature.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                 </div>

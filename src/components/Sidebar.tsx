@@ -115,7 +115,7 @@ const Sidebar = () => {
               {profile?.full_name || profile?.email || 'User'}
             </p>
             <div className="flex items-center space-x-1">
-              <Crown className={`w-3 h-3 ${profile?.role === 'admin' ? 'text-red-400' : 'text-blue-400'}`} />
+              <Crown className={`w-3 h-3 ${profile?.role === 'admin' ? 'text-yellow-500' : 'text-blue-400'}`} />
               <p className="text-xs text-gray-400 capitalize">{profile?.role}</p>
             </div>
           </div>

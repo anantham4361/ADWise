@@ -102,7 +102,6 @@ app.get('/api/personas/:id', authenticateUser, requirePermission('read'), async 
       return res.status(404).json({ detail: 'Persona not found' });
     }
     res.json(persona);
-    console.log(`Fetched persona with ID: ${id}`);
   } catch (error) {
     console.error('Error fetching persona:', error);
     res.status(500).json({ detail: `Failed to fetch persona: ${error.message}` });

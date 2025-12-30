@@ -165,7 +165,7 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ result }) => {
                     </td>
                     <td className="py-3 px-4 text-center">
                       <span className={`font-semibold ${diff > 0 ? 'text-blue-600' : diff < 0 ? 'text-purple-600' : 'text-gray-500'}`}>
-                        {diff > 0 ? '+' : ''}{diff}
+                        {Math.abs(diff)}
                       </span>
                     </td>
                   </tr>
@@ -185,7 +185,7 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ result }) => {
                 </td>
                 <td className="py-3 px-4 text-center">
                   <span className={`font-bold text-lg ${ad_a_scores.total > ad_b_scores.total ? 'text-blue-600' : ad_b_scores.total > ad_a_scores.total ? 'text-purple-600' : 'text-gray-500'}`}>
-                    {ad_a_scores.total > ad_b_scores.total ? '+' : ''}{ad_a_scores.total - ad_b_scores.total}
+                    {Math.abs(ad_a_scores.total - ad_b_scores.total)}
                   </span>
                 </td>
               </tr>

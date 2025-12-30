@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
           <div key={label} className={`${isDark ? 'bg-gray-800' : 'bg-white'} rounded-xl shadow-lg p-6`}>
             <div className="flex items-center">
               <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-                <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                <Icon className="w-6 h-6 text-indigo-100" />
               </div>
               <div className="ml-4">
                 <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
@@ -115,7 +115,7 @@ const Dashboard: React.FC = () => {
         <div className="space-y-4">
           <div className="flex items-start">
             <div className="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center">
-              <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">1</span>
+              <span className="text-sm font-bold text-indigo-50">1</span>
             </div>
             <div className="ml-4">
               <h3 className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -128,7 +128,7 @@ const Dashboard: React.FC = () => {
           </div>
           <div className="flex items-start">
             <div className="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center">
-              <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">2</span>
+              <span className="text-sm font-bold text-indigo-50">2</span>
             </div>
             <div className="ml-4">
               <h3 className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -141,7 +141,7 @@ const Dashboard: React.FC = () => {
           </div>
           <div className="flex items-start">
             <div className="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center">
-              <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">3</span>
+              <span className="text-sm font-bold text-indigo-50">3</span>
             </div>
             <div className="ml-4">
               <h3 className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
