@@ -13,6 +13,7 @@ import ResultsDisplay from '../components/ResultsDisplay';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { AdType, EvaluationResult, Persona } from '../App';
 import { useAuthStore } from '../stores/authStore';
+import { useAnalysisReports } from '../hooks/useAnalysisReports';
 
 
 interface MultiPersonaResult {
@@ -24,12 +25,12 @@ interface MultiPersonaResult {
 const AdAnalysisPage: React.FC = () => {
   const { isDark } = useThemeStore();
 
-  
+  const report = useAnalysisReports();
   
 
   const [selectedPersonas, setSelectedPersonas] = useState<string[]>([]);
   const [personaPrompt, setPersonaPrompt] = useState('');
-  const [adType, setAdType] = useState<AdType>('image');
+  const [adType, setAdType] = useState<AdType>('text');
   
   // Image ads
   const [adImageA, setAdImageA] = useState<File | null>(null);
@@ -147,6 +148,10 @@ const AdAnalysisPage: React.FC = () => {
       );
 
       setEvaluationResults(results);
+
+      //when new report is created, fetch the data again
+      report.refetch();
+
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unexpected error occurred');
     } finally {

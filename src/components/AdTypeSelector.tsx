@@ -16,6 +16,13 @@ const AdTypeSelector: React.FC<AdTypeSelectorProps> = ({ selectedType, onTypeCha
 
   const adTypes = [
     {
+      type: 'text' as AdType,
+      label: 'Text Ads',
+      icon: FileText,
+      description: 'Analyze text-based advertisements',
+      color: 'green'
+    },
+    {
       type: 'image' as AdType,
       label: 'Image Ads(Coming Soon)',
       icon: Image,
@@ -28,13 +35,6 @@ const AdTypeSelector: React.FC<AdTypeSelectorProps> = ({ selectedType, onTypeCha
       icon: Video,
       description: 'Analyze video advertisements',
       color: 'purple'
-    },
-    {
-      type: 'text' as AdType,
-      label: 'Text Ads',
-      icon: FileText,
-      description: 'Analyze text-based advertisements',
-      color: 'green'
     }
   ];
 
